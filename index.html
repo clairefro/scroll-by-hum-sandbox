@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Scroll by Pitch</title>
+		<link href='http://fonts.googleapis.com/css?family=Alike' rel='stylesheet' type='text/css'>
+		<style>
+			body { font: 14pt 'Alike', sans-serif;}
+			#note { font-size: 164px; }
+			.droptarget { background-color: #348781}
+			div.confident { color: black; }
+			div.vague { color: lightgrey; }
+			#note { display: inline-block; height:180px; text-align: left;}
+			
+			#detector { width: 300px; height: 300px; border: 4px solid gray; border-radius: 8px; text-align: center; padding-top: 10px;}
+			#output { width: 300px; height: 42px; }
+			#flat { display: none; }
+			#sharp { display: none; }
+			.flat #flat { display: inline; }
+			.sharp #sharp { display: inline; }
+		</style>
+	</head>
+	<body>
+		<script src="js/pitchdetect.js"></script>
+		
+		<p>
+			<button onclick="this.innerText = togglePlayback()">use demo audio</button>
+			<button onclick="toggleLiveInput()">use live input</button>
+			<button onclick="toggleOscillator()">use oscillator</button>
+			<!--<button onclick="updatePitch(0);">sample</button>-->
+		</p>
+
+		<div id="detector" class="vague">
+			<div class="pitch"><span id="pitch">--</span>Hz</div>
+			<div class="note"><span id="note">--</span></div>   
+			<canvas id="output" width=300 height=42></canvas>
+			<div id="detune"><span id="detune_amt">--</span><span id="flat">cents &#9837;</span><span id="sharp">cents &#9839;</span></div>
+		</div>
+
+  <h2>Pitch and frequency</h2>
+	<p>
+   Pitch is an auditory sensation in which a listener assigns musical tones to relative positions on a musical scale based primarily on their perception of the frequency of vibration.[6] Pitch is closely related to frequency, but the two are not equivalent. Frequency is an objective, scientific attribute that can be measured. Pitch is each person's subjective perception of a sound wave, which cannot be directly measured. However, this does not necessarily mean that most people won't agree on which notes are higher and lower.
+
+	<p>
+		The oscillations of sound waves can often be characterized in terms of frequency. Pitches are usually associated with, and thus quantified as, frequencies (in cycles per second, or hertz), by comparing the sounds being assessed against sounds with pure tones (ones with periodic, sinusoidal waveforms). Complex and aperiodic sound waves can often be assigned a pitch by this method.[7][8][9]
+	</p>
+	<p>
+
+		According to the American National Standards Institute, pitch is the auditory attribute of sound according to which sounds can be ordered on a scale from low to high. Since pitch is such a close proxy for frequency, it is almost entirely determined by how quickly the sound wave is making the air vibrate and has almost nothing to do with the intensity, or amplitude, of the wave. That is, "high" pitch means very rapid oscillation, and "low" pitch corresponds to slower oscillation. Despite that, the idiom relating vertical height to sound pitch is shared by most languages.[10] At least in English, it is just one of many deep conceptual metaphors that involve up/down. The exact etymological history of the musical sense of high and low pitch is still unclear. There is evidence that humans do actually perceive that the source of a sound is slightly higher or lower in vertical space when the sound frequency is increased or reduced.[10]
+	</p>
+	<p>
+
+	In most cases, the pitch of complex sounds such as speech and musical notes corresponds very nearly to the repetition rate of periodic or nearly-periodic sounds, or to the reciprocal of the time interval between repeating similar events in the sound waveform.[8][9]
+</p>
+<p></p>
+The pitch of complex tones can be ambiguous, meaning that two or more different pitches can be perceived, depending upon the observer.[5] When the actual fundamental frequency can be precisely determined through physical measurement, it may differ from the perceived pitch because of overtones, also known as upper partials, harmonic or otherwise. A complex tone composed of two sine waves of 1000 and 1200 Hz may sometimes be heard as up to three pitches: two spectral pitches at 1000 and 1200 Hz, derived from the physical frequencies of the pure tones, and the combination tone at 200 Hz, corresponding to the repetition rate of the waveform. In a situation like this, the percept at 200 Hz is commonly referred to as the missing fundamental, which is often the greatest common divisor of the frequencies present.[11]
+
+<p></p>
+Pitch depends to a lesser degree on the sound pressure level (loudness, volume) of the tone, especially at frequencies below 1,000 Hz and above 2,000 Hz. The pitch of lower tones gets lower as sound pressure increases. For instance, a tone of 200 Hz that is very loud seems one semitone lower in pitch than if it is just barely audible. Above 2,000 Hz, the pitch gets higher as the sound gets louder.[12] These results were obtained in the pioneering works by S. Stevens [13] and W. Snow.[14] Later investigations, i.e. by A. Cohen, had shown that in most cases the apparent pitch shifts were not significantly different from pitch‐matching errors. When averaged, the remaining shifts followed the directions of Stevens' curves but were small (2% or less by frequency, i.e. not more than a semitone).[15]
+
+<p></p>
+<h2>Theories of pitch perception</h2>
+
+Theories of pitch perception try to explain how the physical sound and specific physiology of the auditory system work together to yield the experience of pitch. In general, pitch perception theories can be divided into place coding and temporal coding. Place theory holds that the perception of pitch is determined by the place of maximum excitation on the basilar membrane.
+
+<p></p>
+A place code, taking advantage of the tonotopy in the auditory system, must be in effect for the perception of high frequencies, since neurons have an upper limit on how fast they can phase-lock their action potentials.[6] However, a purely place-based theory cannot account for the accuracy of pitch perception in the low and middle frequency ranges. Moreover, there is some evidence that some non-human primates lack auditory cortex responses to pitch despite having clear tonotopic maps in auditory cortex, showing that tonotopic place codes are not sufficient for pitch responses.[16]
+
+<p></p>
+Temporal theories offer an alternative that appeals to the temporal structure of action potentials, mostly the phase-locking and mode-locking of action potentials to frequencies in a stimulus. The precise way this temporal structure helps code for pitch at higher levels is still debated, but the processing seems to be based on an autocorrelation of action potentials in the auditory nerve.[17] However, it has long been noted that a neural mechanism that may accomplish a delay—a necessary operation of a true autocorrelation—has not been found.[6] At least one model shows that a temporal delay is unnecessary to produce an autocorrelation model of pitch perception, appealing to phase shifts between cochlear filters;[18] however, earlier work has shown that certain sounds with a prominent peak in their autocorrelation function do not elicit a corresponding pitch percept,[19][20] and that certain sounds without a peak in their autocorrelation function nevertheless elicit a pitch.[21][22] To be a more complete model, autocorrelation must therefore apply to signals that represent the output of the cochlea, as via auditory-nerve interspike-interval histograms.[20] Some theories of pitch perception hold that pitch has inherent octave ambiguities, and therefore is best decomposed into a pitch chroma, a periodic value around the octave, like the note names in western music—and a pitch height, which may be ambiguous, that indicates the octave the pitch is in.[5]
+
+<p></p>
+<h2>Just-noticeable difference</h2>
+
+The just-noticeable difference (jnd) (the threshold at which a change is perceived) depends on the tone's frequency content. Below 500 Hz, the jnd is about 3 Hz for sine waves, and 1 Hz for complex tones; above 1000 Hz, the jnd for sine waves is about 0.6% (about 10 cents).[23] The jnd is typically tested by playing two tones in quick succession with the listener asked if there was a difference in their pitches.[12] The jnd becomes smaller if the two tones are played simultaneously as the listener is then able to discern beat frequencies. The total number of perceptible pitch steps in the range of human hearing is about 1,400; the total number of notes in the equal-tempered scale, from 16 to 16,000 Hz, is 120.[12]
+
+<p></p>
+<h2>Aural illusions</h2>
+
+The relative perception of pitch can be fooled, resulting in aural illusions. There are several of these, such as the tritone paradox, but most notably the Shepard scale, where a continuous or discrete sequence of specially formed tones can be made to sound as if the sequence continues ascending or descending forever.</p>
+	</body>
+</html>
